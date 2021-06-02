@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<head>
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <meta http-equiv="Content-Security-Policy">
+        <script type="text/javascript" src="cordova.js"></script>
+        <!-- jQuery -->
+        <link rel="stylesheet" type="text/css" href="js/jquery-1.5.0.mobile.min.css">
+        <script type="text/javascript" src="js/jquery-1.11.1.min.js" id="cordova-jquery"></script>
+        <script type="text/javascript" id="jqm-trans-disable">
+            /* For having a faster transition */
+            $(document).on("mobileinit", function() {
+                            $.mobile.defaultPageTransition = "none";
+                            $.mobile.defaultDialogTransition = "none";
+            });
+        </script>
+        <script type="text/javascript" src="js/jquery-1.5.0.mobile.min.js"></script>        
+        <script type="text/javascript" src="js/index.js"></script>
+        <title>Taxi Sharing</title>    
+</head>
+<body>   
+        <div class="app">
+            <h1>Taxi Sharing</h1>
+            <!-- Google Map canvas -->
+			<!--Set the width and height of the map, and its id as map_canvas-->
+			<canvas style="width:100%;height:120px;" id="map_canvas">
+            </canvas>
+            <div data-role="controlgroup" data-type="horizontal">
+                <!-- Input text fields: ID "name", start time shall have and ID "time",
+                end time shall have an ID "time2", address shall have and ID "addr" -->
+				
+				<!--div tag added to define a section to style with CSS. 
+				Form element collects user input.-->
+					<form>
+					<div class="field">
+						<label for="name">OUCU:</label>
+						<input type="text" id="name" />
+
+						<label for="time">Start time:</label>
+						<input type="text" id="time" />
+				
+						<label for="time2">End time:</label>
+						<input type="text" id="time2"/>
+
+						<label for="addr">Address:</label>
+						<input type="text" id="addr" />
+					</div>
+					</form>
+            </div>
+            <div data-role="controlgroup" data-type="horizontal">
+                <!-- Function buttons: register, volunteer, request, cancel, start / stop
+                -->
+					<!-- Execute a JavaScript register() function when Register button is clicked-->
+					<button type=button id="register" onclick="app.taxiShare.register()">Register</button>
+					<!-- Execute a JavaScript volunteer() function when Volunteer button is clicked-->
+					<button type=button id="volunteer" onclick="app.taxiShare.volunteer()">Volunteer</button>
+					<!-- Execute a JavaScript request() function when Request button is clicked-->
+					<button type=button id="request" onclick="app.taxiShare.request()">Request</button>
+					<!-- Execute a JavaScript cancel() function when Cancel button is clicked-->
+					<button type=button id="cancel" onclick="app.taxiShare.cancel()">Cancel</button>
+					<!--The Start/Stop buttons have been separately to be able to start and stop the timer.
+					Execute a JavaScript stop() / start() function when Start / Stop buttons are clicked-->
+					<button type=button id="start" onclick="app.taxiShare.start()">Start </button>
+					<button type=button id="stop" onclick="app.taxiShare.stop()">Stop </button>
+
+        </div>
+</body>
